@@ -17,7 +17,7 @@ class Battle
     private function attack(Spaceship $attacker, Spaceship $defender): int
     {
         // small randomness around attack value
-        $variation = rand(-1, 1);
+        $variation = rand(0, 1);
         $damage = max(1, $attacker->__getAttack() + $variation);
         $defender->HP -= $damage;
         return $damage;

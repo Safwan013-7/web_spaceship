@@ -1,6 +1,8 @@
 <?php
 
-class Shield
+require_once __DIR__ . '/Entiteit.php';
+
+class Shield extends Entiteit
 {
     public string $Name;
     public int $Durabillity;

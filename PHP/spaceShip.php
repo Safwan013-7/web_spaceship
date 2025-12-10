@@ -1,8 +1,9 @@
 <?php
+require_once 'Entiteiten/Entiteit.php';
 require_once 'Entiteiten/canon.php';
 require_once 'Entiteiten/shield.php';
 
-class Spaceship
+class Spaceship extends Entiteit
 {
     public string $naam;
     public int $lengte;
