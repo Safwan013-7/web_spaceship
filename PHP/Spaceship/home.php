@@ -1,7 +1,7 @@
 <?php 
 require_once "spaceShip.php";
-require_once "Entiteiten/canon.php";
-require_once "Entiteiten/shield.php";
+require_once "../Entiteiten/canon.php";
+require_once "../Entiteiten/shield.php";
 
 $SpaceShip = new Spaceship(naam: "Destroyer ", lengte: 6 , HP: 7 , aanval: 2 );
 echo($SpaceShip->__getName());

@@ -1,10 +1,10 @@
 <?php
 // Outputs an array describing inheritance relationships between key classes.
 
-require_once __DIR__ . '/spaceShip.php';
-require_once __DIR__ . '/Entiteiten/canon.php';
-require_once __DIR__ . '/Entiteiten/shield.php';
-require_once __DIR__ . '/Entiteiten/Entiteit.php';
+require_once __DIR__ . '/../Spaceship/spaceShip.php';
+require_once __DIR__ . '/../Entiteiten/canon.php';
+require_once __DIR__ . '/../Entiteiten/shield.php';
+require_once __DIR__ . '/../Entiteiten/Entiteit.php';
 
 $classes = [
     'Entiteit',

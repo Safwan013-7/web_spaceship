@@ -1,10 +1,12 @@
 <?php
-require_once 'Entiteiten/Entiteit.php';
-require_once 'Entiteiten/canon.php';
-require_once 'Entiteiten/shield.php';
-require_once 'interfaces/IMovable.php';
+require_once '../Entiteiten/Entiteit.php';
+require_once '../Entiteiten/canon.php';
+require_once '../Entiteiten/shield.php';
+require_once '../interfaces/IMovable.php';
+require_once '../interfaces/IWeapon.php';
+require_once '../interfaces/IDefense.php';
 
-class Spaceship extends Entiteit implements IMovable
+class Spaceship extends Entiteit implements IMovable, IWeapon, IDefense
 {
     public string $naam;
     public int $lengte;
@@ -75,4 +77,34 @@ class Spaceship extends Entiteit implements IMovable
         return $this->position;
     }
 
+    public function getDamage(): int
+    {
+        $totalDamage = 0;
+        foreach ($this->Cannons as $canon) {
+            $totalDamage += $canon->getDamage();
+        }
+        return $totalDamage;
+    }
+
+    public function fire(): int
+    {
+        return $this->getDamage();
+    }
+
+    public function absorbDamage(int $damage): int
+    {
+        foreach ($this->Shields as $shield) {
+            if ($damage <= 0) break;
+            $damage = $shield->absorbDamage($damage);
+        }
+        return $damage;
+    }
+
+    public function isActive(): bool
+    {
+        foreach ($this->Shields as $shield) {
+            if ($shield->isActive()) return true;
+        }
+        return false;
+    }
 }
