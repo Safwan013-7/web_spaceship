@@ -34,7 +34,6 @@ foreach ($classes as $c) {
         'implements' => array_values($interfaces)
     ];
 }
-
 header('Content-Type: application/json; charset=utf-8');
 echo json_encode($inheritance, JSON_PRETTY_PRINT);
 
